@@ -1,13 +1,16 @@
 [features]
 seeds = false
 [programs.localnet]
-crowdfunding_program = "7vnf4qketJbYnbiEapQie7NjWqWtLocruCWX1TaUqe9x"
+crowdfunding_program = "6kdiEuXzdvAMThDg9rWtvYm3BBUH8PGTkJhyAKnLrv7G"
+
+[programs.devnet]
+crowdfunding_program = "6kdiEuXzdvAMThDg9rWtvYm3BBUH8PGTkJhyAKnLrv7G"
 
 [registry]
 url = "https://anchor.projectserum.com"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "./id.json"
 
 [scripts]
