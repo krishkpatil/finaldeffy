@@ -2,11 +2,10 @@ import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import { clusterApiUrl } from '@solana/web3.js';
 import React from 'react';
 import './App.css';
-import CompaingsView from './views/campaigns-view';
-import WalletWrapper from './wrappers/wallet-wrapper';
+import CompaingsView from '../views/campaigns-view';
+import WalletWrapper from '../wrappers/wallet-wrapper';
 import Container from 'react-bootstrap/Container';
-import Navbar from './components/Navbar.js'
-import Card from 'react-bootstrap/Card';
+import Navbar from '../components/Navbar.js'
 
 interface AppProps {
 
@@ -19,15 +18,8 @@ const App: React.FC<AppProps> = () => {
     return (
         <WalletWrapper network={network}>
             <Navbar />
-            <Card className="text-center" style={{ width: '50rem' }}>
-                <Card.Body>
-                <Card.Title>Create Campaign</Card.Title>
-                    <CompaingsView network={network}/>
-                </Card.Body>
-            </Card>
         </WalletWrapper>
     );
 }
 
 export default App;
-
