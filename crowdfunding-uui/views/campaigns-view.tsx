@@ -71,7 +71,7 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
 
     return (
         <div className='campaigns-view p-5'>
-            {!wallet.connected && <WalletMultiButton />}
+            {!wallet.connected}
             <Form>
                 <Form.Group className='mb-3'>
                     <FloatingLabel controlId='name' label='Name'>

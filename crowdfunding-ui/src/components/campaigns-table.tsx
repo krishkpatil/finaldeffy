@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BN, Program, ProgramAccount, web3 } from '@project-serum/anchor';
 import { PublicKey } from '@solana/web3.js';
 import { Button, Table } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
 
 interface CampaignsTableProps {
     program: Program;

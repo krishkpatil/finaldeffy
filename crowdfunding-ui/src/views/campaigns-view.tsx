@@ -8,7 +8,6 @@ import {
     web3,
 } from '@project-serum/anchor';
 import { useWallet } from '@solana/wallet-adapter-react';
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { Commitment, Connection, PublicKey } from '@solana/web3.js';
 import idl from '../idl.json';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
@@ -71,7 +70,7 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
 
     return (
         <div className='campaigns-view p-5'>
-            {!wallet.connected && <WalletMultiButton />}
+            {!wallet.connected}
             <Form>
                 <Form.Group className='mb-3'>
                     <FloatingLabel controlId='name' label='Name'>

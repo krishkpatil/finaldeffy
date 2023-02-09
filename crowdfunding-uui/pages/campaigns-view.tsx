@@ -14,7 +14,7 @@ const network = clusterApiUrl(WalletAdapterNetwork.Devnet);
 const App: React.FC<AppProps> = () => {
     return (
         <WalletWrapper network={network}>
-            <CompaingsView network={network}/>
+            <CompaignsView network={network}/>
         </WalletWrapper>
     );
 }
