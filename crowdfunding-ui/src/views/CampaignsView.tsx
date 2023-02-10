@@ -12,6 +12,8 @@ import { Commitment, Connection, PublicKey } from '@solana/web3.js';
 import idl from '../idl.json';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import CampaignsTable from '../components/campaigns-table';
+import { Card, CardImg, CardText, CardBody,
+    CardTitle } from 'reactstrap';
 
 const opts: { preflightCommitment: Commitment } = {
     preflightCommitment: 'processed',
@@ -69,53 +71,57 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
     };
 
     return (
+
         <div className='CampaignsView p-5'>
-            {!wallet.connected}
-            <Form>
-                <Form.Group className='mb-3'>
-                    <FloatingLabel controlId='name' label='Name'>
-                        <Form.Control
-                            type='text'
-                            placeholder='Name of the campaign'
-                            value={name}
-                            onChange={onNameChange}
-                        />
-                    </FloatingLabel>
-                </Form.Group>
-                <Form.Group className='mb-3'>
-                    <FloatingLabel controlId='description' label='Description'>
-                        <Form.Control
-                            as='textarea'
-                            placeholder='Description of the campaign'
-                            style={{ height: '150px' }}
-                            value={description}
-                            onChange={onDescriptionChange}
-                        />
-                    </FloatingLabel>
-                </Form.Group>
-                <Form.Group className='mb-3'>
-                    <FloatingLabel
-                        controlId='targetAmount'
-                        label='Target Amount'
-                        className='mb-3'
-                    >
-                        <Form.Control
-                            as='input'
-                            type='number'
-                            placeholder='Targemt amount that need to be reached'
-                            value={targetAmount}
-                            onChange={onTargetAmountChange}
-                        />
-                    </FloatingLabel>
-                </Form.Group>
-                <Form.Group className='mb-3'>
-                    <Button variant='primary' onClick={createCampaign}>
-                        Create Campaign
-                    </Button>
-                </Form.Group>
-            </Form>
-            {wallet.connected && <CampaignsTable  walletKey={wallet.publicKey!} program={program}/>}
+   
+                    {!wallet.connected}
+                    <Form>
+                        <Form.Group className='mb-3'>
+                            <FloatingLabel controlId='name' label='Name'>
+                                <Form.Control
+                                    type='text'
+                                    placeholder='Name of the campaign'
+                                    value={name}
+                                    onChange={onNameChange}
+                                />
+                            </FloatingLabel>
+                        </Form.Group>
+                        <Form.Group className='mb-3'>
+                            <FloatingLabel controlId='description' label='Description'>
+                                <Form.Control
+                                    as='textarea'
+                                    placeholder='Description of the campaign'
+                                    style={{ height: '150px' }}
+                                    value={description}
+                                    onChange={onDescriptionChange}
+                                />
+                            </FloatingLabel>
+                        </Form.Group>
+                        <Form.Group className='mb-3'>
+                            <FloatingLabel
+                                controlId='targetAmount'
+                                label='Target Amount'
+                                className='mb-3'
+                            >
+                                <Form.Control
+                                    as='input'
+                                    type='number'
+                                    placeholder='Targemt amount that need to be reached'
+                                    value={targetAmount}
+                                    onChange={onTargetAmountChange}
+                                />
+                            </FloatingLabel>
+                        </Form.Group>
+                        <Form.Group className='mb-3'>
+                            <Button variant='primary' onClick={createCampaign}>
+                                Create Campaign
+                            </Button>
+                        </Form.Group>
+                    </Form>
+                    {wallet.connected && <CampaignsTable  walletKey={wallet.publicKey!} program={program}/>}
+
         </div>
+
     );
 };
 
