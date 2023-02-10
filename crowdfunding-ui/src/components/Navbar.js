@@ -25,7 +25,20 @@ function Example(args) {
     <div>
       <Navbar color="dark" dark {...args}>
         <NavbarBrand href="/">DEFFYFUNDS</NavbarBrand>
-        <WalletMultiButton />
+        <Nav>
+          <NavItem>
+          <NavLink href="/">Home</NavLink>
+          </NavItem>
+          <NavItem>
+          <NavLink href="/campaigns">Campaigns</NavLink>
+          </NavItem>
+          <NavItem>
+          <NavLink href="#">About</NavLink>
+          </NavItem>
+        </Nav>
+        <Nav>
+          <WalletMultiButton />
+        </Nav>
       </Navbar>
     </div>
   );

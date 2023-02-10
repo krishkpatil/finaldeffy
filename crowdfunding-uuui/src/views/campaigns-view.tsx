@@ -70,7 +70,7 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
     };
 
     return (
-        <div className='campaigns-view p-5'>
+        <div className='CampaignsView p-5'>
             {!wallet.connected && <WalletMultiButton />}
             <Form>
                 <Form.Group className='mb-3'>

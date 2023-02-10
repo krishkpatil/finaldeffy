@@ -1,5 +1,5 @@
 import './App.css';
-import CompaingsView from './views/campaigns-view';
+import CompaingsView from './views/CampaignsView';
 import WalletWrapper from './wrappers/wallet-wrapper';
 
 interface AppProps {

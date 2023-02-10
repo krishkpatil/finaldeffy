@@ -17,7 +17,7 @@ const Home: NextPage = () => {
           </Text>
         </Navbar.Brand>
         <Navbar.Content hideIn="md">
-          <Navbar.Link href="http://localhost:3000/campaigns-view">Campaigns</Navbar.Link>
+          <Navbar.Link href="http://localhost:3000/CampaignsView">Campaigns</Navbar.Link>
           <Navbar.Link href="#">How it works</Navbar.Link>
           <Navbar.Link href="#">About Us</Navbar.Link>
         </Navbar.Content>
@@ -36,7 +36,7 @@ const Home: NextPage = () => {
           <Col css={{"width": "100%"}}>
             <Text weight={"bold"} size={70} css={{"textAlign": "center"}}>A Crowdfunding Platform</Text>
             <Text weight={"bold"} size={70} css={{"textAlign": "center"}}>On The Bockchain</Text>
-            <Link href="http://localhost:3000/campaigns-view">
+            <Link href="http://localhost:3000/CampaignsView">
             <Button  size="md" shadow color="gradient" css={{"width": "100%", "marginTop": "10px"}}>Create a Campaign</Button>         
             </Link>
           </Col>
