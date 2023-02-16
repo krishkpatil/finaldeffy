@@ -72,7 +72,8 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
 
     return (
 
-        <div className='CampaignsView p-5'>
+        <Card className='CampaignsView p-5'>
+            
    
                     {!wallet.connected}
                     <Form>
@@ -106,7 +107,7 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
                                 <Form.Control
                                     as='input'
                                     type='number'
-                                    placeholder='Targemt amount that need to be reached'
+                                    placeholder='Target amount that need to be reached'
                                     value={targetAmount}
                                     onChange={onTargetAmountChange}
                                 />
@@ -120,7 +121,7 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
                     </Form>
                     {wallet.connected && <CampaignsTable  walletKey={wallet.publicKey!} program={program}/>}
 
-        </div>
+        </Card>
 
     );
 };

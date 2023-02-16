@@ -59,52 +59,34 @@ export const CampaignsTable: React.FC<CampaignsTableProps> = ({
             const key = c.publicKey.toBase58();
 
             return (
-                <tr key={key}>
-                    <td>{i + 1}</td>
-                    <td>{c.account.name}</td>
-                    <td>{c.account.description}</td>
-                    <td>{c.account.targetAmount.toString()}</td>
-                    <td>{(c.account.amountDonated / web3.LAMPORTS_PER_SOL).toString()}</td>
-                    <td>
-                        <Button
-                            className='m-1'
-                            variant='primary'
-                            onClick={() => donate(c.publicKey)}
-                        >
-                            Donate
-                        </Button>
-                        <Button
-                            disabled={c.account.owner.toBase58() !== walletKey.toBase58()}
-                            className='m-1'
-                            variant='danger'
-                            onClick={() => withdraw(c.publicKey)}
-                        >
-                            Withdraw
-                        </Button>
-                    </td>
-                </tr>
-            );
-        });
-    };
-
-    return (
-        <>
-            <div>Campaigns</div>
-            <Table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Target Amount</th>
-                        <th>Donated</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>{allCampaigns()}</tbody>
-            </Table>
-        </>
-    );
-};
-
-export default CampaignsTable;
+                <Card key={key} className="m-3">
+                  <Card.Body>
+                    <Card.Title>{c.account.name}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">
+                      Target Amount: {c.account.targetAmount.toString()}
+                    </Card.Subtitle>
+                    <Card.Text>{c.account.description}</Card.Text>
+                    <Card.Text>Donated: {(c.account.amountDonated / web3.LAMPORTS_PER_SOL).toString()}</Card.Text>
+                    <div className="d-grid gap-2">
+                      <Button variant="primary" onClick={() => donate(c.publicKey)}>
+                        Donate
+                      </Button>
+                      <Button
+                        variant="danger"
+                        onClick={() => withdraw(c.publicKey)}
+                        disabled={c.account.owner.toBase58() !== walletKey.toBase58()}
+                      >
+                        Withdraw
+                      </Button>
+                    </div>
+                  </Card.Body>
+                  
+                </Card>
+              );
+            });
+          };
+        
+          return <div>{allCampaigns()}</div>;
+        };
+        
+        export default CampaignsTable;
