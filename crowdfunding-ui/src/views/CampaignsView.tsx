@@ -75,51 +75,9 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
         <Card className='CampaignsView p-5'>
             
    
-                    {!wallet.connected}
-                    <Form>
-                        <Form.Group className='mb-3'>
-                            <FloatingLabel controlId='name' label='Name'>
-                                <Form.Control
-                                    type='text'
-                                    placeholder='Name of the campaign'
-                                    value={name}
-                                    onChange={onNameChange}
-                                />
-                            </FloatingLabel>
-                        </Form.Group>
-                        <Form.Group className='mb-3'>
-                            <FloatingLabel controlId='description' label='Description'>
-                                <Form.Control
-                                    as='textarea'
-                                    placeholder='Description of the campaign'
-                                    style={{ height: '150px' }}
-                                    value={description}
-                                    onChange={onDescriptionChange}
-                                />
-                            </FloatingLabel>
-                        </Form.Group>
-                        <Form.Group className='mb-3'>
-                            <FloatingLabel
-                                controlId='targetAmount'
-                                label='Target Amount'
-                                className='mb-3'
-                            >
-                                <Form.Control
-                                    as='input'
-                                    type='number'
-                                    placeholder='Target amount that need to be reached'
-                                    value={targetAmount}
-                                    onChange={onTargetAmountChange}
-                                />
-                            </FloatingLabel>
-                        </Form.Group>
-                        <Form.Group className='mb-3'>
-                            <Button variant='primary' onClick={createCampaign}>
-                                Create Campaign
-                            </Button>
-                        </Form.Group>
-                    </Form>
-                    {wallet.connected && <CampaignsTable  walletKey={wallet.publicKey!} program={program}/>}
+            {!wallet.connected}
+            
+            {wallet.connected && <CampaignsTable  walletKey={wallet.publicKey!} program={program}/>}
 
         </Card>
 

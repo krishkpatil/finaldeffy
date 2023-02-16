@@ -26,16 +26,19 @@ function Example() {
   return (
     <div className='bg-[#0a192f]'>
       <Navbar color="bg-[#0a192f]" dark expand="md" className="flex flex-wrap items-center justify-center p-6">
-        <Link to="/" className="text-white font-bold text-xl mr-4 no-underline">Deffyfunds</Link>
+        <Link to="/" className="text-white font-bold text-3xl mr-4 ml-4 no-underline">Deffyfunds</Link>
         <NavbarToggler onClick={toggle}/>
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto justify-center" navbar>
-            <Nav navbar className="justify-center">
+            <Nav navbar className="justify-center d-flex align-items-center">
               <NavItem>
-                <NavLink tag={Link} to="/campaigns" className="text-gray-200 hover:text-white mr-4">Campaigns</NavLink>
+                <NavLink tag={Link} to="/create" className="text-gray-200 hover:text-pink-600 mr-4">Create a Campaign</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="/about" className="text-gray-200 hover:text-white mr-4">About</NavLink>
+                <NavLink tag={Link} to="/campaigns" className="text-gray-200 hover:text-pink-600 mr-4">Campaigns</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="/about" className="text-gray-200 hover:text-pink-600 mr-4">About</NavLink>
               </NavItem>
             </Nav>
             <WalletMultiButton />

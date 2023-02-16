@@ -3,7 +3,7 @@ import React from 'react'
 const GetStarted = () => {
   return (
 
-      <div class="container my-24 px-6 mx-auto">
+      <div class="container my-24 px-6 mx-auto ">
 
         <section class="mb-32 text-gray-800 text-center">
           <h2 class="text-3xl font-bold mb-20">Why is it so great?</h2>

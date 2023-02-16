@@ -14,7 +14,8 @@ import CampaignsView from './views/CampaignsView.tsx'
 import Campaigns from './pages/Campaigns.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
-import GetStarted from './components/GetStarted.jsx'
+import Create from './pages/Create.jsx'
+
 
 interface AppProps {
 
@@ -32,8 +33,9 @@ const App = () => {
                 <Route index element={<Home />} />
                 <Route path="campaigns" element={<Campaigns />} />
                 <Route path="About" element={<About />} />
+                <Route path="create" element={<Create />} />
             </Routes>
-            <GetStarted />
+
         </WalletWrapper>
     );
 }
