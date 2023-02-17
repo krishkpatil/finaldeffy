@@ -2,12 +2,13 @@ import React from 'react';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import { Link } from "react-router-dom";
 import GetStarted from '../components/GetStarted.jsx'
+import Steps from '../components/Steps.jsx'
 
 const Home = () => {
     
   return (
     <div>
-      <div name='home' className='w-full h-screen bg-[#0a192f]'>
+      <div name='home' className='w-full h-screen bg-gradient-to-b from-slate-900 to-fuchsia-900'>
         {/* Container */}
         <div className='max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full'>
           <p className='text-pink-600'>Welcome to a</p>
@@ -33,6 +34,8 @@ const Home = () => {
         </div>
         
       </div>
+     
+     <Steps/>
      <GetStarted/>
     </div>
   );
