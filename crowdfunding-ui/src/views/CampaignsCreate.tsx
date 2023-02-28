@@ -12,8 +12,7 @@ import { Commitment, Connection, PublicKey } from '@solana/web3.js';
 import idl from '../idl.json';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import CampaignsTable from '../components/campaigns-table';
-import { Card, CardImg, CardText, CardBody,
-    CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 const opts: { preflightCommitment: Commitment } = {
     preflightCommitment: 'processed',
@@ -30,9 +29,10 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [targetAmount, setTargetAmount] = useState<number>(1);
+    const [imageUrl, setImageUrl] = useState(''); // New state for image URL
 
     const getProgram = () => {
-        /* create the provider and return it to the caller */ 
+        /* create the provider and return it to the caller */
         const connection = new Connection(network, opts.preflightCommitment);
         const provider = new AnchorProvider(connection, wallet as any, opts);
         /* create the program interface combining the idl, program ID, and provider */
@@ -51,6 +51,9 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
     const onTargetAmountChange = (e: ChangeEvent<any>) => {
         setTargetAmount(e.target.value);
     };
+    const onImageUrlChange = (e: ChangeEvent<any>) => {
+        setImageUrl(e.target.value);
+    };
 
     const createCampaign = async () => {
         const [campaign] = await PublicKey.findProgramAddress(
@@ -58,10 +61,10 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
                 utils.bytes.utf8.encode('campaign_demo'),
                 wallet.publicKey!.toBuffer(),
             ],
-            program.programId,
+            program.programId
         );
         await program.methods
-            .create(name, description, new BN(targetAmount))
+            .create(name, description, new BN(targetAmount), imageUrl)
             .accounts({
                 campaign: campaign,
                 user: wallet.publicKey!,
@@ -71,57 +74,66 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
     };
 
     return (
-
-        <Card className='CampaignsView p-5'>
-            
-   
-                    {!wallet.connected}
-                    <Form>
-                        <Form.Group className='mb-3'>
-                            <FloatingLabel controlId='name' label='Name'>
-                                <Form.Control
-                                    type='text'
-                                    placeholder='Name of the campaign'
-                                    value={name}
-                                    onChange={onNameChange}
-                                />
-                            </FloatingLabel>
-                        </Form.Group>
-                        <Form.Group className='mb-3'>
-                            <FloatingLabel controlId='description' label='Description'>
-                                <Form.Control
-                                    as='textarea'
-                                    placeholder='Description of the campaign'
-                                    style={{ height: '150px' }}
-                                    value={description}
-                                    onChange={onDescriptionChange}
-                                />
-                            </FloatingLabel>
-                        </Form.Group>
-                        <Form.Group className='mb-3'>
-                            <FloatingLabel
-                                controlId='targetAmount'
-                                label='Target Amount'
-                                className='mb-3'
-                            >
-                                <Form.Control
-                                    as='input'
-                                    type='number'
-                                    placeholder='Target amount that need to be reached'
-                                    value={targetAmount}
-                                    onChange={onTargetAmountChange}
-                                />
-                            </FloatingLabel>
-                        </Form.Group>
-                        <Form.Group className='mb-3'>
-                            <Button variant='primary' onClick={createCampaign}>
-                                Create Campaign
-                            </Button>
-                        </Form.Group>
-                    </Form>
-
+        <Card className="CampaignsView p-5">
+            {!wallet.connected}
+            <Form>
+                <Form.Group className="mb-3">
+                    <FloatingLabel controlId="name" label="Name">
+                        <Form.Control
+                            type="text"
+                            placeholder="Name of the campaign"
+                            value={name}
+                            onChange={onNameChange}
+                        />
+                    </FloatingLabel>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <FloatingLabel controlId="description" label="Description">
+                        <Form.Control
+                            as="textarea"
+                            placeholder="Description of the campaign"
+                            style={{ height: '150px' }}
+                            value={description}
+                            onChange={onDescriptionChange}
+                        />
+                    </FloatingLabel>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <FloatingLabel
+                        controlId="targetAmount"
+                        label="Target Amount"
+                        className="mb-3"
+                    >
+                        <Form.Control
+                            as="input"
+                            type="number"
+                            placeholder="Target amount that need to be reached"
+                            value={targetAmount}
+                            onChange={onTargetAmountChange}
+                        />
+                    </FloatingLabel>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <FloatingLabel
+                        controlId="imageUrl"
+                        label="Image URL"
+                        className="mb-3"
+                    >
+                        <Form.Control
+                            type="text"
+                            placeholder="Image URL for the campaign"
+                            value={imageUrl}
+                            onChange={onImageUrlChange}
+                        />
+                    </FloatingLabel>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Button variant="primary" onClick={createCampaign}>
+                        Create Campaign
+                    </Button>
+                </Form.Group>
+            </Form>
         </Card>
-
     );
 };
 
