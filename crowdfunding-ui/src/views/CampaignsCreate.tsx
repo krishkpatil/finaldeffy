@@ -74,66 +74,88 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
     };
 
     return (
-        <Card className="CampaignsView p-5">
-            {!wallet.connected}
-            <Form>
-                <Form.Group className="mb-3">
-                    <FloatingLabel controlId="name" label="Name">
-                        <Form.Control
-                            type="text"
-                            placeholder="Name of the campaign"
-                            value={name}
-                            onChange={onNameChange}
-                        />
-                    </FloatingLabel>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <FloatingLabel controlId="description" label="Description">
-                        <Form.Control
-                            as="textarea"
-                            placeholder="Description of the campaign"
-                            style={{ height: '150px' }}
-                            value={description}
-                            onChange={onDescriptionChange}
-                        />
-                    </FloatingLabel>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <FloatingLabel
-                        controlId="targetAmount"
-                        label="Target Amount"
-                        className="mb-3"
-                    >
-                        <Form.Control
-                            as="input"
-                            type="number"
-                            placeholder="Target amount that need to be reached"
-                            value={targetAmount}
-                            onChange={onTargetAmountChange}
-                        />
-                    </FloatingLabel>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <FloatingLabel
-                        controlId="imageUrl"
-                        label="Image URL"
-                        className="mb-3"
-                    >
-                        <Form.Control
-                            type="text"
-                            placeholder="Image URL for the campaign"
-                            value={imageUrl}
-                            onChange={onImageUrlChange}
-                        />
-                    </FloatingLabel>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Button variant="primary" onClick={createCampaign}>
-                        Create Campaign
-                    </Button>
-                </Form.Group>
-            </Form>
-        </Card>
+        <div className="bg-gradient-to-br from-purple-800 to-pink-500 min-h-screen flex flex-col justify-center items-center">
+            <div className="container mx-auto">
+                {!wallet.connected}
+                <div className="row">
+                    <div className="col-md-8 mx-auto">
+                        <div className="card shadow-lg w-full mx-auto">
+                            <div className="card-body">
+                                <h1 className="text-center text-xl font-bold mb-8">
+                                    Create a New Campaign 📢
+                                </h1>
+                                <Form>
+                                    <Form.Group className="mb-3">
+                                        <FloatingLabel
+                                            controlId="name"
+                                            label="Name"
+                                        >
+                                            <Form.Control
+                                                type="text"
+                                                placeholder="Name of the campaign"
+                                                value={name}
+                                                onChange={onNameChange}
+                                            />
+                                        </FloatingLabel>
+                                    </Form.Group>
+                                    <Form.Group className="mb-3">
+                                        <FloatingLabel
+                                            controlId="description"
+                                            label="Description"
+                                        >
+                                            <Form.Control
+                                                as="textarea"
+                                                placeholder="Description of the campaign"
+                                                style={{ height: '150px' }}
+                                                value={description}
+                                                onChange={onDescriptionChange}
+                                            />
+                                        </FloatingLabel>
+                                    </Form.Group>
+                                    <Form.Group className="mb-3">
+                                        <FloatingLabel
+                                            controlId="targetAmount"
+                                            label="Target Amount"
+                                            className="mb-3"
+                                        >
+                                            <Form.Control
+                                                as="input"
+                                                type="number"
+                                                placeholder="Target amount that need to be reached"
+                                                value={targetAmount}
+                                                onChange={onTargetAmountChange}
+                                            />
+                                        </FloatingLabel>
+                                    </Form.Group>
+                                    <Form.Group className="mb-3">
+                                        <FloatingLabel
+                                            controlId="imageUrl"
+                                            label="Image URL"
+                                            className="mb-3"
+                                        >
+                                            <Form.Control
+                                                type="text"
+                                                placeholder="Image URL for the campaign"
+                                                value={imageUrl}
+                                                onChange={onImageUrlChange}
+                                            />
+                                        </FloatingLabel>
+                                    </Form.Group>
+                                    <Form.Group className="mb-3 flex justify-center">
+                                        <Button
+                                            variant="primary"
+                                            onClick={createCampaign}
+                                        >
+                                            Create Campaign
+                                        </Button>
+                                    </Form.Group>
+                                </Form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 };
 
