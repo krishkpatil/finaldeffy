@@ -45,4 +45,4 @@ To view your campaigns:
 
 ## License
 
-Deffy is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+Deffy is licensed under the [MIT License](LICENSE).
