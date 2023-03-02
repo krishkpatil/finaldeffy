@@ -74,8 +74,8 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
     };
 
     return (
-        <div className="bg-gradient-to-br from-purple-800 to-pink-500 min-h-screen flex flex-col justify-center items-center">
-            <div className="container mx-auto">
+        <div className="bg-[#0a192f] min-h-screen flex flex-col justify-center items-center">
+            <div className="container mx-auto mt-16">
                 {!wallet.connected}
                 <div className="row">
                     <div className="col-md-8 mx-auto">
