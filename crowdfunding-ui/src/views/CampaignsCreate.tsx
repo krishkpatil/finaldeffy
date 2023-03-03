@@ -64,13 +64,22 @@ export const CampaignsView: React.FC<CampaignsViewProps> = ({ network }) => {
             program.programId
         );
         await program.methods
-            .create(name, description, new BN(targetAmount), imageUrl)
+            .create(name, description, new BN(targetAmount))
             .accounts({
                 campaign: campaign,
                 user: wallet.publicKey!,
                 systemProgram: web3.SystemProgram.programId,
             })
             .rpc();
+    };
+
+    const isValidUrl = (url: string) => {
+        try {
+            new URL(url);
+            return true;
+        } catch (_) {
+            return false;
+        }
     };
 
     return (
