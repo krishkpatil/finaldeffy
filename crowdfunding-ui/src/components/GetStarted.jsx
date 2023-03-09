@@ -3,7 +3,7 @@ import React from 'react';
 const GetStarted = () => {
     return (
         <div class="h-screen flex flex-col bg-gradient-to-b from-slate-900 to-fuchsia-900">
-            <div class="container px-6 mx-auto mt-12">
+            <div class="container px-6 mx-auto mt-12 mb-20">
                 <section class="mb-12 text-gray-800 text-center">
                     <div class="text-center mb-14">
                         <h2 className="text-3xl font-extrabold text-white sm:text-4xl ">
