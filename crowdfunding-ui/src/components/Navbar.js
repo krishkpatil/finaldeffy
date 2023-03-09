@@ -51,18 +51,24 @@ function Example() {
                         </button>
                         <div
                             className={`${
-                                isOpen ? 'block' : 'hidden'
+                                isOpen
+                                    ? 'block bg-gray-900 bg-opacity-90 rounded-lg transition-opacity duration-300 ease-linear py-4 transform translate-y-1'
+                                    : 'hidden bg-opacity-0'
                             } w-full flex-grow md:flex md:items-center md:w-auto`}
                         >
                             <Nav
                                 navbar
-                                className="text-md md:flex-grow md:justify-center"
+                                className={`text-md md:flex-grow md:justify-center ${
+                                    isOpen ? 'px-4' : ''
+                                }`}
                             >
                                 <NavItem>
                                     <NavLink
                                         tag={Link}
                                         to="/create"
-                                        className="text-gray-200 hover:text-pink-600 block md:inline-block mr-4"
+                                        className={`text-gray-200 hover:text-pink-600 block md:inline-block mr-4 ${
+                                            isOpen ? 'py-2' : ''
+                                        }`}
                                     >
                                         Create a Campaign
                                     </NavLink>
@@ -71,7 +77,9 @@ function Example() {
                                     <NavLink
                                         tag={Link}
                                         to="/campaigns"
-                                        className="text-gray-200 hover:text-pink-600 block md:inline-block mr-4"
+                                        className={`text-gray-200 hover:text-pink-600 block md:inline-block mr-4 ${
+                                            isOpen ? 'py-2' : ''
+                                        }`}
                                     >
                                         Campaigns
                                     </NavLink>
@@ -80,13 +88,19 @@ function Example() {
                                     <NavLink
                                         tag={Link}
                                         to="/about"
-                                        className="text-gray-200 hover:text-pink-600 block md:inline-block mr-4"
+                                        className={`text-gray-200 hover:text-pink-600 block md:inline-block mr-4 ${
+                                            isOpen ? 'py-2' : ''
+                                        }`}
                                     >
                                         About
                                     </NavLink>
                                 </NavItem>
                             </Nav>
-                            <div>
+                            <div
+                                className={`text-gray-200 hover:text-pink-600 block md:inline-block mr-4 ${
+                                    isOpen ? 'px-3 py-2' : ''
+                                }`}
+                            >
                                 <WalletMultiButton />
                             </div>
                         </div>

@@ -33,6 +33,10 @@
                 {
                     "name": "targetAmount",
                     "type": "u64"
+                },
+                {
+                    "name": "imageUrl",
+                    "type": "string"
                 }
             ]
         },
@@ -131,6 +135,6 @@
         }
     ],
     "metadata": {
-        "address": "4DZaVxizvqcN7cJiZpNyfUYKXvQDf1Wugc8b9WeDJt8q"
+        "address": "6kdiEuXzdvAMThDg9rWtvYm3BBUH8PGTkJhyAKnLrv7G"
     }
 }
